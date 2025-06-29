@@ -20,7 +20,7 @@ Ce projet fournit :
 
 ```bash
 # Cloner le dépôt
-git clone <url-du-dépôt> code-dam
+git clone [<url-du-dépôt>](https://github.com/karimmarais/Code-DAM.git) code-dam
 cd code-dam
 
 ```
