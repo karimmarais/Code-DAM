@@ -1,0 +1,422 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+.converter-section {
+    margin-bottom: 2rem;
+}
+
+.form-inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.form-inline .input-group {
+    margin-bottom: 0;
+    flex: 1 1 auto;
+    min-width: 180px;
+}
+
+.form-inline label {
+    margin-bottom: 0.3rem;
+}
+
+.form-inline .submit-btn {
+    width: auto;
+    margin-bottom: 0;
+    align-self: flex-end;
+}
+
+@media (max-width: 700px) {
+    .form-inline {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .form-inline .input-group, .form-inline .submit-btn {
+        width: 100%;
+    }
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    height: 44px;
+    background-color: #fff;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+input[type="text"]#damCode {
+    width: 120px;
+    min-width: 80px;
+    max-width: 180px;
+    display: inline-block;
+}
+
+input[type="text"] {
+    height: 2.4em;
+    line-height: 2.4em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    border: 1px solid #ffcdd2;
+}
+
+.submit-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 0;
+    transition: background-color 0.3s ease;
+    height: 44px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+.result-section {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 4px;
+}
+
+.result-section h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+#result p {
+    margin-bottom: 0.5rem;
+}
+
+.calendar-section {
+    margin: 2rem 0;
+}
+
+.calendar-section h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 2rem;
+}
+
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.calendar-table th,
+.calendar-table td {
+    border: 1px solid #ddd;
+    min-width: 48px;
+    max-width: 70px;
+    width: 60px;
+    font-size: 0.95rem;
+    padding: 2px 2px;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.calendar-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+}
+
+.calendar-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.calendar-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.calendar-table td:hover {
+    background-color: #e3f2fd;
+    cursor: pointer;
+}
+
+.info-section {
+    background-color: #e8f4f8;
+    padding: 1.5rem;
+    border-radius: 4px;
+}
+
+.info-section h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.highlight-cell {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.flash-message {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.flash-message.error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+
+.flash-message.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Correction de la hauteur du select pour éviter le texte tronqué */
+select {
+    height: 2.4em;
+    line-height: 2.4em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modalMonthYear {
+    margin: initial;
+}
+
+.modal-table-container {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: auto; /* Keep horizontal scroll if needed */
+    margin-top: 20px;
+}
+
+.modal-table {
+    width: 100%; /* Take full width of modal content */
+    border-collapse: collapse;
+    table-layout: fixed; /* For consistent column widths */
+}
+
+.modal-table th,
+.modal-table td {
+    border: 1px solid #ddd;
+    text-align: center;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    position: relative;
+}
+
+.modal-table th {
+    background-color: #e0e0e0; /* Gray background */
+    font-weight: bold;
+    padding: 8px 4px; /* Increased padding for more height */
+    line-height: 1.5; /* Adjust line-height for text centering */
+    font-size: 0.9rem; /* Standard font size for readability */
+}
+
+.modal-table td {
+    padding: 8px; /* Standard padding for content cells */
+    min-width: 80px; /* Adjust as needed based on content */
+    height: 60px; /* Fixed height for consistent cell size */
+}
+
+.modal-table td .day-number {
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.modal-table td .dam-number {
+    position: absolute;
+    bottom: 4px;
+    right: 6px;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: bold;
+}
+
+/* FAQ Section Styles */
+.faq-section {
+    margin-top: 30px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.faq-section h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.faq-item h3 {
+    cursor: pointer;
+    color: #3498db;
+    font-size: 1.1em;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.faq-item h3:hover {
+    color: #2980b9;
+}
+
+.faq-item h3::after {
+    content: '+';
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active h3::after {
+    content: '-';
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 10px;
+}
+
+.faq-answer p {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    color: #555;
+    line-height: 1.6;
+} 
